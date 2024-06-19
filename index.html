@@ -1,0 +1,20 @@
+<html lang="ja">
+    <head>
+        <title>
+            webOCR
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+        <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>カメラで撮影して文字認識</h1>
+        <video id="video" width="320" height="240" ></video>
+        <button id="captureButton">button</button>
+        <canvas id="canvas" width="320"  height="240"></canvas>
+        <div id="result"></div>
+        <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script>
+
+    </body>
+</html>
