@@ -6,12 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const result = document.getElementById("result");
   //カメラにアクセスして映像を取得
   navigator.mediaDevices
-    .getUserMedia({ video: true })
+    .getUserMedia({ video: { facingMode: "environment" } })
     .then((stream) => {
       video.srcObject = stream;
     })
     .catch((err) => {
       console.error("カメラへのアクセスが許可されませんでした", err);
+      result.textContent = "カメラへのアクセスが許可されませんでした";
     });
   captureButton.addEventListener("click", () => {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
