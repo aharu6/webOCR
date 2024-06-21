@@ -18,10 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
     const image = canvas.toDataURL("image/png");
 
-    Tesseract.recognize(image, "jpn", { logger: (m) => console.log(m) }).then(
-      ({ data: text }) => {
+    Tesseract.recognize(image, "jpn", { logger: (m) => console.log(m) })
+      .then(({ data: { text } }) => {
+        console.log(text);
         result.textContent = text;
-      }
-    );
+      })
+      .catch((err) => {
+        console.log("実行中にエラーが発生しました", err);
+        result.textContent = "実行中にエラーが発生しました";
+      });
   });
 });
